@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ClinicaJulio.ViewModels"
+             x:Class="ClinicaJulio.MainPage"
+            MinimumHeightRequest="10">
+
+
+    <ContentPage.BindingContext>
+        <vm:PersonasViewModel x:Name="pvm"></vm:PersonasViewModel>
+    </ContentPage.BindingContext>
+   
+    <Grid BackgroundColor="Red" >
+        <StackLayout>
+            <Frame Margin="0" BackgroundColor="#328dd8" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".7*"></ColumnDefinition>
+                        <ColumnDefinition Width=".3*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Text="Registro de vacunación"  HorizontalOptions="Start" FontSize="25" FontAttributes="Bold" VerticalOptions="Center" VerticalTextAlignment="Center" TextColor="White" ></Label>
+                    <Label Grid.Column="1" Text="💉" HorizontalOptions="End" FontSize="25" VerticalOptions="Center" VerticalTextAlignment="Center" TextColor="White" ></Label>
+                </Grid>
+            </Frame>
+            <Frame BackgroundColor="#6aace3" HeightRequest="110" Padding="0" Margin="0,-6,0,0"  >
+
+
+
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                            <RowDefinition Height=".5*"></RowDefinition>
+                            <RowDefinition Height=".5*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Label Grid.Row="0" Grid.ColumnSpan="3" FontSize="25" FontAttributes="Bold" HorizontalTextAlignment="Center" Text="Buscar persona"></Label>
+                        <Entry WidthRequest="200" x:Name="txtPersonaBuscar" Text="{Binding NombreDeLaPersonaABuscar}" HorizontalOptions="Start"  Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" VerticalOptions="Center" Placeholder="Nombre de la persona"></Entry>
+                    <Button x:Name="btnBuscarPersona" Command="{Binding BuscarPersonaCommand}"  HorizontalOptions="End" Grid.Row="1" Grid.Column="1"  VerticalOptions="Center"    Text="🔎"></Button>
+
+                    <Button x:Name="btnRegresar" Clicked="btnRegresar_Clicked" Command="{Binding RegresarCommand}"  HorizontalOptions="End" Grid.Row="1" Grid.Column="2"  VerticalOptions="Center"    Text="regresar"></Button>
+                    </Grid>
+
+              
+            </Frame>
+            <Grid Margin="0,-7,0,0" >
+                <StackLayout>
+                    <Grid BackgroundColor="#6aace3" HeightRequest="50" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" FontSize="15" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"  FontAttributes="Bold" Text="Nombre"></Label>
+                        <Label Grid.Column="1" FontSize="15" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" Text="Edad"></Label>
+                        <Label Grid.Column="2" FontSize="15" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" Text="Sexo"></Label>
+
+                        <Label Grid.Column="3" FontSize="15" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" Text="Vacuna"></Label>
+                        <Label Grid.Column="4" FontSize="15" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" Text="Lote"></Label>
+
+                    </Grid>
+                    <ListView BackgroundColor="AliceBlue" Margin="0,-6,0,0"   x:Name="lstMediciones" SelectionMode="Single" ItemsSource="{Binding ListaPersonas}" HasUnevenRows="True" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell   Height="70"  >
+
+                                    <Grid BackgroundColor="#e7e4e1" Opacity=".75"  Margin="5" 
+
+                                    >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*" ></ColumnDefinition>
+                                            <ColumnDefinition Width="1*" ></ColumnDefinition>
+                                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                                            <ColumnDefinition  Width="1*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition ></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Label  Grid.Column="0" FontSize="15" TextColor="Black"  VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontFamily="Bold" Text="{Binding Nombre}"></Label>
+                                        <Label Grid.Column="1" FontSize="15" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontFamily="Bold">
+
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding Edad}"></Span>
+                                                    <Span Text=" Años"></Span>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label  Grid.Column="2" FontSize="15" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontFamily="Bold" Text="{Binding Sexo}"></Label>
+                                        <Label Grid.Column="3" FontSize="15" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontFamily="Bold"  Text="{Binding Vacuna}"></Label>
+                                        <Label  Grid.Column="4" FontSize="15" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontFamily="Bold"  Text="{Binding Lote}"></Label>
+
+                                    </Grid>
+
+
+                                    <ViewCell.ContextActions>
+                                        <MenuItem Command="{Binding Source={x:Reference pvm},Path=VerEditarCommand}" 
+                                                  CommandParameter="{Binding .}"  x:Name="eliminar" Text="Editar ✏️"
+                                                 ></MenuItem>
+                                        <MenuItem x:Name="editar" Text="Eliminar 🗑️"
+                                            Command="{Binding Source={x:Reference pvm}, Path=EliminarCommand}"                                    
+                                   CommandParameter="{Binding .}"  ></MenuItem>
+                                    </ViewCell.ContextActions>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                   
+                </StackLayout>
+                <Button BackgroundColor="#ff8000" TextColor="White" BorderWidth="0"
+HeightRequest="60" WidthRequest="60"
+HorizontalOptions="End" VerticalOptions="End"
+Margin="10" FontSize="30" CornerRadius="50"
+Text="+" x:Name="fabButton" Command="{Binding VerAgregarCommand}" ></Button>
+               
+            </Grid>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
