@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiAgenda.Views.AgregarAgendaView"
+             xmlns:m="clr-namespace:MiAgenda.Models"
+             xmlns:vm="clr-namespace:MiAgenda.ViewModels"
+            
+             x:DataType="vm:AgendaViewModel"
+             >
+
+    <ScrollView  BackgroundColor="AliceBlue"  >
+        <StackLayout   >
+            <StackLayout.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="FontSize" Value="20"></Setter>
+                    <Setter Property="TextColor" Value="Black"></Setter>
+                </Style>
+            </StackLayout.Resources>
+            <Frame  BackgroundColor="Red" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".7*"></ColumnDefinition>
+                        <ColumnDefinition Width=".3*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Text="Nuevo registro"  HorizontalOptions="Start" FontSize="25" FontAttributes="Bold" VerticalOptions="Center" VerticalTextAlignment="Center" TextColor="White" ></Label>
+                    <Image Grid.Column="1"   VerticalOptions="CenterAndExpand" HorizontalOptions="End" Source="https://previews.123rf.com/images/dxinerz/dxinerz1507/dxinerz150701884/42781172-diario-libro-notas-registro-de-imagen-de-icono-de-vector-tambi%C3%A9n-se-puede-utilizar-para-la-educaci%C3%B3n.jpg"></Image>
+
+                </Grid>
+            </Frame>
+            <StackLayout Margin="5">
+                <Image Source="https://1.bp.blogspot.com/-PbzHjRUdFA0/VKbvlPfVSUI/AAAAAAAABZQ/U57KJhKr9ww/s1600/Ejericio.png"></Image>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label  Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"  HorizontalTextAlignment="Center" Text="Actividad:"></Label>
+                    <Entry Text="{Binding Agenda.Actividad }" Grid.Column="1" Keyboard="Text" Placeholder="Ej: comer" HorizontalTextAlignment="Center" VerticalOptions="Center"></Entry>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"  HorizontalTextAlignment="Center" Text="Fecha a realizar:"></Label>
+                    <Picker SelectedItem="{Binding Agenda.FechaDeRealizar}" HorizontalTextAlignment="Center" VerticalOptions="Center"  x:Name="pic" Grid.Column="1">
+                        <Picker.Items>
+
+                            <x:String>Lunes</x:String>
+                            <x:String>Martes</x:String>
+                            <x:String>Miercoles</x:String>
+                            <x:String>Jueves</x:String>
+                            <x:String>Viernes</x:String>
+                            <x:String>Sabado</x:String>
+                            <x:String>Domingo</x:String>
+                         
+
+                        </Picker.Items>
+                    </Picker>
+                 
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" VerticalOptions="Center"  HorizontalOptions="Center"  HorizontalTextAlignment="Center" Text="Importancia:"></Label>
+                   
+                    <Picker SelectedItem="{Binding Agenda.Importancia}" HorizontalTextAlignment="Center" VerticalOptions="Center"  x:Name="pic2" Grid.Column="1">
+                        <Picker.Items>
+
+                            <x:String>Alta</x:String>
+                            <x:String>Media</x:String>
+                            <x:String>Baja</x:String>
+                          
+
+
+                        </Picker.Items>
+                    </Picker>
+
+
+
+                </Grid>
+              
+                <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+                   
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Button Command="{Binding EnviarCommand}" Text="Agregar"></Button>
+                        <Button Command="{Binding CancelarCommand}" Text="Cancelar"></Button>
+                      
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

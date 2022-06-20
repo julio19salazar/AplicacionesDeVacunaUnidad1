@@ -7,7 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiVacunacion", "ApiVacunac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicaJulio.Android", "ClinicaJulio\ClinicaJulio.Android\ClinicaJulio.Android.csproj", "{F32FE451-3E9E-4740-BC3A-63D6D4DABD98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicaJulio", "ClinicaJulio\ClinicaJulio\ClinicaJulio.csproj", "{0ACF9F72-9C61-4907-BBF9-64EB63DD7E5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClinicaJulio", "ClinicaJulio\ClinicaJulio\ClinicaJulio.csproj", "{0ACF9F72-9C61-4907-BBF9-64EB63DD7E5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiAgenda.Android", "MiAgenda\MiAgenda.Android\MiAgenda.Android.csproj", "{40D9D18F-948A-49C0-B303-2ECA125F82E2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiAgenda", "MiAgenda\MiAgenda\MiAgenda.csproj", "{E369F3B7-FBEB-4141-B684-EC40ECA5D582}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiLogin.Android", "MiLogin\MiLogin.Android\MiLogin.Android.csproj", "{C53A7918-D687-4CC5-8A2D-62A4FF78D026}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiLogin", "MiLogin\MiLogin\MiLogin.csproj", "{2BD704C5-FF18-44A5-912F-AA9FB793A9A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +37,26 @@ Global
 		{0ACF9F72-9C61-4907-BBF9-64EB63DD7E5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ACF9F72-9C61-4907-BBF9-64EB63DD7E5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0ACF9F72-9C61-4907-BBF9-64EB63DD7E5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40D9D18F-948A-49C0-B303-2ECA125F82E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40D9D18F-948A-49C0-B303-2ECA125F82E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40D9D18F-948A-49C0-B303-2ECA125F82E2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{40D9D18F-948A-49C0-B303-2ECA125F82E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40D9D18F-948A-49C0-B303-2ECA125F82E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40D9D18F-948A-49C0-B303-2ECA125F82E2}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E369F3B7-FBEB-4141-B684-EC40ECA5D582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E369F3B7-FBEB-4141-B684-EC40ECA5D582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E369F3B7-FBEB-4141-B684-EC40ECA5D582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E369F3B7-FBEB-4141-B684-EC40ECA5D582}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C53A7918-D687-4CC5-8A2D-62A4FF78D026}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C53A7918-D687-4CC5-8A2D-62A4FF78D026}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C53A7918-D687-4CC5-8A2D-62A4FF78D026}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C53A7918-D687-4CC5-8A2D-62A4FF78D026}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C53A7918-D687-4CC5-8A2D-62A4FF78D026}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C53A7918-D687-4CC5-8A2D-62A4FF78D026}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2BD704C5-FF18-44A5-912F-AA9FB793A9A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BD704C5-FF18-44A5-912F-AA9FB793A9A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BD704C5-FF18-44A5-912F-AA9FB793A9A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BD704C5-FF18-44A5-912F-AA9FB793A9A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

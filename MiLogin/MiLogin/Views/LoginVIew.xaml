@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:viewmodels="clr-namespace:MiLogin.ViewModels"
+                xmlns:ads="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
+             x:Class="MiLogin.Views.LoginVIew">
+    <ContentPage.BindingContext>
+        <viewmodels:LoginViewModel></viewmodels:LoginViewModel>
+    </ContentPage.BindingContext>
+    
+    <StackLayout Background="white">
+        <ads:MTAdView Background="white"
+                      Grid.Row="1"
+                      HeightRequest="60"
+                      IsEnabled="True"
+                      IsVisible="True"
+                      x:Name="miAd"
+                      AdsId="ca-app-pub-9712565769296684/8852197082"/>
+        <Image Source="Mi_icono.jpeg" HeightRequest="400" WidthRequest="400" Margin="0" ></Image>
+        <Label FontSize="30" HorizontalTextAlignment="Center" Padding="5" Margin="5" >Login</Label>
+        <Label Text="Para poder continuar ingrese sus datos" FontSize="15" TextColor="#017467" HorizontalOptions="Center"></Label>
+        <StackLayout Margin="50,0,50,10" >
+            <Entry  Placeholder="Inserte su usuario" Text="{Binding LoginModel.NombreUsuario}"></Entry>
+
+
+            <Entry Placeholder="Inserte su contraseña" IsPassword="True" Text="{Binding LoginModel.Contraseña}" ></Entry>
+        </StackLayout>
+
+        <Label Text="{Binding Error}" TextColor="Red" HorizontalOptions="Center" FontSize="Small"></Label>
+
+        <ActivityIndicator IsVisible="{Binding Indicador}"></ActivityIndicator>
+
+        <Button BackgroundColor="#015d52" TextColor="White" Command="{Binding IniciarSesionCommand}" HorizontalOptions="Center" Text="Iniciar sesión"></Button>
+
+    </StackLayout>
+</ContentPage>

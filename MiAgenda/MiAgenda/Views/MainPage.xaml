@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:viewmodels="clr-namespace:MiAgenda.ViewModels" 
+             xmlns:models="clr-namespace:MiAgenda.Models" 
+             xmlns:helpers="clr-namespace:MiAgenda.Helpers"
+             x:Class="MiAgenda.MainPage">
+    <ContentPage.BindingContext>
+        <viewmodels:AgendaViewModel x:Name="chatvm"></viewmodels:AgendaViewModel>
+    </ContentPage.BindingContext>
+    <Grid BackgroundColor="Red" >
+        <StackLayout>
+            <Frame Margin="0" BackgroundColor="#ff0000" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".7*"></ColumnDefinition>
+                        <ColumnDefinition Width=".3*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Text="Mis actividades"  HorizontalOptions="Start" FontSize="25" FontAttributes="Bold" VerticalOptions="Center" VerticalTextAlignment="Center" TextColor="White" ></Label>
+                    <Label Grid.Column="1" Text="📝" HorizontalOptions="End" FontSize="25" VerticalOptions="Center" VerticalTextAlignment="Center" TextColor="White" ></Label>
+                </Grid>
+            </Frame>
+          
+            <Grid Margin="0,-7,0,0" >
+                <StackLayout>
+                    <Grid BackgroundColor="#ff4040" HeightRequest="50" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                           
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" FontSize="15" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"  FontAttributes="Bold" Text="Actividad"></Label>
+                        <Label Grid.Column="1" FontSize="15" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" Text="Día"></Label>
+                        <Label Grid.Column="2" FontSize="15" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" Text="Importancia"></Label>
+
+
+                    </Grid>
+                    <ListView BackgroundColor="#fffcbd" Margin="0,-6,0,0"   x:Name="lstMediciones" SelectionMode="Single" ItemsSource="{Binding ListaAgendas}" HasUnevenRows="True" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell   Height="70"  >
+
+                                    <Grid BackgroundColor="#e7e4e1" Opacity=".75"  Margin="5" 
+
+                                    >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*" ></ColumnDefinition>
+                                            <ColumnDefinition Width="1*" ></ColumnDefinition>
+                                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                                            
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition ></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Label  Grid.Column="0" FontSize="15" TextColor="Black"  VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontFamily="Bold" Text="{Binding Actividad}"></Label>
+                                        <Label Grid.Column="1" FontSize="15" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontFamily="Bold">
+
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding FechaDeRealizar}"></Span>
+                                               
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label  Grid.Column="2" FontSize="15" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontFamily="Bold" Text="{Binding Importancia}"></Label>
+                                       
+
+                                    </Grid>
+
+
+                                    <ViewCell.ContextActions>
+                                        <MenuItem Command="{Binding Source={x:Reference chatvm},Path=VerEditarCommand}" 
+                                                  CommandParameter="{Binding .}"  x:Name="editar" Text="Editar ✏️"
+                                                 ></MenuItem>
+                                        <MenuItem Command="{Binding Source={x:Reference chatvm},Path=EliminarCommand}" 
+                                                  CommandParameter="{Binding .}"  x:Name="eliminar" Text="Eliminar 🗑️"
+                                                 ></MenuItem>
+                                    </ViewCell.ContextActions>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </StackLayout>
+                <Button  BackgroundColor="LightBlue" TextColor="White" BorderWidth="0"
+HeightRequest="60" WidthRequest="60"
+HorizontalOptions="End" VerticalOptions="End"
+Margin="10" FontSize="30" CornerRadius="50"
+Text="📆" x:Name="fabButton" Command="{Binding VerAgregarCommand}" >
+                  
+                </Button>
+
+            </Grid>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

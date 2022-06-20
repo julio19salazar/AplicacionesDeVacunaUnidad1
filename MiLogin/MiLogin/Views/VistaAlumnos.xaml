@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:viewmodels="clr-namespace:MiLogin.ViewModels"
+             xmlns:ads="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
+             x:Class="MiLogin.Views.VistaAlumnos">
+    <ContentPage.BindingContext>
+        <viewmodels:AlumnosViewModel x:Name="vmA"></viewmodels:AlumnosViewModel>
+    </ContentPage.BindingContext>
+
+
+    <Grid  >
+        <StackLayout>
+            <ads:MTAdView Background="White"
+                      Grid.Row="1"
+                      HeightRequest="60"
+                      IsEnabled="True"
+                      IsVisible="True"
+                      x:Name="miAd"
+                      AdsId="ca-app-pub-9712565769296684/8852197082"/>
+            <Frame Margin="0" BackgroundColor="#015d52" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".6*"></ColumnDefinition>
+                        <ColumnDefinition Width=".4*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Text="Alumnos tec"  HorizontalOptions="Start" FontSize="25" FontAttributes="Bold" VerticalOptions="Center" VerticalTextAlignment="Center" TextColor="White" ></Label>
+                    <Button  Command="{Binding CerrarSesionCommand}"  Grid.Column="1" 
+                            HorizontalOptions="End" 
+                         HeightRequest="50" WidthRequest="110" 
+                           VerticalOptions="Center" 
+                        Text="Cerrar sesión"
+                          ></Button>
+                </Grid>
+            </Frame>
+           
+            <Grid Margin="0,-7,0,0" >
+                <StackLayout>
+                    <Grid BackgroundColor="#017467" HeightRequest="50" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                          
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" FontSize="15" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"  FontAttributes="Bold" Text="Nombre"></Label>
+                        <Label Grid.Column="1" FontSize="15" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" Text="Edad"></Label>
+                        <Label Grid.Column="2" FontSize="15" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" Text="Peso"></Label>
+
+                        <Label Grid.Column="3" FontSize="15" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" Text="Area"></Label>
+                     
+
+                    </Grid>
+                    <ListView IsEnabled="False" BackgroundColor="AliceBlue" Margin="0,-6,0,0"   x:Name="lstMediciones" SelectionMode="Single" ItemsSource="{Binding ListaAlumnos}" HasUnevenRows="True" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell   Height="70"  >
+
+                                    <Grid   Margin="5" 
+
+                                    >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*" ></ColumnDefinition>
+                                            <ColumnDefinition Width="1*" ></ColumnDefinition>
+                                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                                         
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition ></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Label  Grid.Column="0" FontSize="13" TextColor="Black"  VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontFamily="Bold" Text="{Binding Nombre}"></Label>
+                                        <Label Grid.Column="1" FontSize="13" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontFamily="Bold">
+
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding Edad}"></Span>
+                                                    <Span Text=" Años"></Span>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label  Grid.Column="2" FontSize="13" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontFamily="Bold">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding Peso}"></Span>
+                                                    <Span Text=" Kg"></Span>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+
+                                        </Label>
+                                        <Label Grid.Column="3" FontSize="13" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontFamily="Bold"  Text="{Binding Area}"></Label>
+                         
+
+                                    </Grid>
+
+
+                                   
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </StackLayout>
+              
+
+            </Grid>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

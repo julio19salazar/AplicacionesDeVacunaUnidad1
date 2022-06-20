@@ -29,19 +29,7 @@ namespace ClinicaJulio.Services
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             Catalogo = p;
             DeserializarBuffer();
-            //Verificar si ya se ha descargado algo antes
-
-            //if (!Preferences.ContainsKey("FechaUltimaActualizacion"))
-            //{ //Si no: Verifico si tengo conexion y descargo toda la bd, inicio el hilo de sincronizacion
-
-            //    _ = DescargarPrimeraVezAsync();
-            //    Sincronizar();
-            //}
-            //else
-            //{
-            //    Sincronizar();
-            //    //Si: inicio el hilo de sincronización
-            //}
+           
             if (!Preferences.ContainsKey("FechaUltimaActualizacion"))
             {
                 _ = DescargarPrimeraVezAsync();
